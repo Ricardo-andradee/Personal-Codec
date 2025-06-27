@@ -4,7 +4,7 @@
 #include <cstdlib>
 #include <string>
 #include <cstdint>
-#include "../codec/xe_format.h"
+#include "../Codec/xe_format.h"
 
 using namespace XEFormat;
 
