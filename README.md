@@ -15,32 +15,30 @@ Although the block-based structure allows for independent compression per block,
 
 This work is part of an academic study related to JPEG XE standardization and is intended to support further experimentation and extension.
 
-
 ## Reference JPEG XE Repository
-In the link above is availabe the source code for the JPEG XE standardization activity (raw canonical XE format).
+In the link below is available the source code for the JPEG XE standardization activity (raw canonical XE format):
 
-- [JPEG XE Source Code](https://nx51932.your-storageshare.de/s/QgNjbps8dgAaCJ7)
+- [JPEG XE Source Code](https://gitlab.com/wg1/jpegxe/ctc_tools)
 
-
-## Reference dataset
-In the repository is available some datasets but in the link above is available the full JPEG XE Reference
-dataset. The files (in raw canonical XE format) are available here:
+## Reference Dataset
+In the repository there are some sample datasets, but the link below provides access to the full JPEG XE reference dataset in canonical format:
 
 - [JPEG XE Reference Dataset](https://nx51932.your-storageshare.de/s/QgNjbps8dgAaCJ7)
 
 ## Reference Arithmetic Coding Repository  
-The arithmetic encoder and decoder used in this project are based on publicly available educational implementations of static arithmetic coding.
+The arithmetic encoder and decoder used in this project are based on publicly available educational implementations of static arithmetic coding:
 
-- [Reference Arithmetic Coding Source (Project Nayuki)](https://eli.thegreenplace.net/2015/adaptive-entropy-coding-with-static-models/))
+- [Reference Arithmetic Coding Source (Nayuki)](https://github.com/nayuki/Reference-arithmetic-coding)
 
-
-
-
-## Compiling the software
+## Compiling the Software
 
 ### Requirements
-**C++ Compiler** - you need to install a C++ compiler with support for C++17; depending on your operating system the instructions may be different.
-**System compatible with UNIX commands** - Linux, macOS, WSL on Windows.
+**C++17 Compiler**  
+You need to install a C++ compiler with support for C++17; depending on your operating system the instructions may differ.
+
+**System compatible with UNIX commands**  
+Linux, macOS, or Windows with WSL are recommended.
+
 **Python 3.6+**  
 The compression and decompression scripts are written in Python.
 
@@ -52,9 +50,9 @@ You can install `dahuffman` via pip:
 
 ```bash
 pip install dahuffman
+```
 
-
-## Running test scripts
+## Running Test Scripts
 
 ### On Linux
 
@@ -65,23 +63,26 @@ cd Encoder
 g++ -std=c++17 -O2 xe_to_blockxe.cpp ../Codec/xe_format.cpp -o xe_to_blockxe
 ```
 
-The executable files:
-```
+To run the encoder:
+
+```sh
 ./xe_to_blockxe ../../Datasets/"dataset_name".xe 0 
 ```
-0 to run the full file or a determinated number (corresponds to the number of events to be readed).
+
+Use `0` to process the full file or provide a specific number of events to read.
+
+Run the Huffman compression/decompression:
 
 ```sh
 cd Scripts
 python3 compress_block_huff.py
 python3 decompress_block_huff.py
 ```
-for Huffman coding and decoding.
+
+Run the Arithmetic compression/decompression:
 
 ```sh
 cd Scripts
 python3 compress_block_arit.py
 python3 decompress_block_arit.py
 ```
-for Huffman coding and decoding.
-
