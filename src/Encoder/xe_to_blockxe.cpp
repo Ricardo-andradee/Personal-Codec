@@ -35,8 +35,6 @@ int main(int argc, char* argv[]) {
     const FieldsDefinition fields_def = FieldsDefinition::make_reference();
     //array de eventos 
     std::vector<encoded_event_t> all_events;
-    // prealocar espaço
-    all_events.reserve(1000000); 
 
     while (input_file) {
         //define evento 
@@ -67,7 +65,7 @@ int main(int argc, char* argv[]) {
     }
 
     //tamanho de cada bloco(x eventos)
-    const size_t block_size = 512;
+    const size_t block_size = 1024;
     
     //para iterar sobre all_events
     size_t index = 0;
